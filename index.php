@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="Domotica YRI">
-	<title>Smart Home</title>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
-</head>
-<body>
-	<form action="?a=ok" method="POST" >
-    	<input type=submit value='Lamp 1' />
-	</form>
-	<form action="?a=notok" method="POST" >
-    	<input type=submit value='Lamp 2' />
-	</form>
-</body>
-</html>
-
-
-
 <?php
 
 require_once("config.php");
+require_once("form.html");
  
 $mqtt = new phpMQTT("localhost", 1234, "MQTT Publisher Client");
 
