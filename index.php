@@ -29,7 +29,7 @@ if ($mqtt->connect()) {
 	echo "MQTT Connected!";
 }
 else{
-	echo "MQTT Could Not Connect"
+	echo "MQTT Could Not Connect";
 }
 
 if (isset($_GET['a']) && $_GET['a'] == 'ok'){
