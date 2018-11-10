@@ -1,88 +1,8 @@
-//#include <ESP8266WiFi.h>
-//#include <MQTTClient.h>
-// 
-//const char* ssid     = "Faran"; 
-//const char* password = "cerveja123";
-// 
-//WiFiClient WiFiclient;
-//MQTTClient client;
-// 
-//unsigned long lastMillis = 0;
-// 
-//void setup() {
-// Serial.begin(115200);
-// delay(10);
-// Serial.println();
-// Serial.println();
-// Serial.print("Connecting to ");
-// Serial.println(ssid);
-// 
-// WiFi.begin(ssid, password);
-//  while (WiFi.status() != WL_CONNECTED) {
-//   delay(500);
-//   Serial.print(".");
-// }
-// 
-// Serial.println("");
-// Serial.println("WiFi connected");  
-// Serial.println("IP address: ");
-// Serial.println(WiFi.localIP());
-// 
-// delay(2000);
-// 
-// Serial.print("connecting to MQTT broker...");
-// client.begin("192.168.0.115", 1234, WiFiclient);
-// connect();
-//}
-// 
-//void connect() {
-// while (!client.connect("nodemcu")) {
-//   Serial.print(".");
-// }
-// 
-// Serial.println("\nconnected!");
-// client.subscribe("yasir/ali/test/topic", 0);
-//}
-// 
-//void loop() {
-// int val = analogRead(A0);
-// client.loop();
-// if(!client.connected()) {
-//   connect();
-// }
-//}
-// 
-//void messageReceived(String topic, String payload, char * bytes, unsigned int length) {
-// Serial.print("incoming: ");
-// Serial.print(topic);
-// Serial.print(" - ");
-// Serial.print(payload);
-// Serial.println();
-//}
-
-// This example uses an ESP32 Development Board
-
-// to connect to shiftr.io.
-
-//
-
-// You can check on your device after a successful
-
-// connection here: https://shiftr.io/try.
-
-//
-
-// by Joël Gähwiler
-
-// https://github.com/256dpi/arduino-mqtt
-
-
-
 #include <ESP8266WiFi.h>
 
 #include <MQTT.h>
 
-
+#define relay D1
 
 const char* ssid = "Faran";
 
@@ -116,7 +36,7 @@ void connect() {
 
   Serial.print("\nconnecting...");
 
-  while (!client.connect("NodeMCU")) {
+  while (!client.connect("Wemos D1")) {
 
     Serial.print(".");
 
@@ -143,7 +63,7 @@ void messageReceived(String &topic, String &payload) {
   Serial.println("incoming: " + topic + " - " + payload);
 
   if (payload == "lamp"){
-    digitalWrite(LED_BUILTIN,!digitalRead(LED_BUILTIN));
+    digitalWrite(relay,!digitalRead(relay));
   }
 
 }
@@ -156,7 +76,7 @@ void setup() {
 
   WiFi.begin(ssid, pass);
 
-  pinMode(LED_BUILTIN, OUTPUT); // Inicializa o LED_BUILTIN pin como output (saída)
+  pinMode(relay, OUTPUT); // Inicializa o relay pin como output (saída)
 
   // Note: Local domain names (e.g. "Computer.local" on OSX) are not supported by Arduino.
 
