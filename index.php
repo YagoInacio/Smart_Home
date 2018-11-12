@@ -17,9 +17,8 @@ if (isset($_GET['a']) && $_GET['a'] == 'ok'){
 	$mqtt->close();
 }
 
-else if (isset($_GET['color']) && $_GET['color'] == 'White'){
-	$payload = "#FF FF FF";
-	$mqtt->publish("casa/quarto/yago", $payload, 0);
+else if (isset($_GET['color']) && strlen($_GET['color']) == 9){
+	$mqtt->publish("casa/quarto/yago", $_GET['color'], 0);
 	$mqtt->close();
 }
 
