@@ -1,13 +1,59 @@
-.btn{
+.commonBtn{
     font-family: arial;
     font-size: 20px;
     text-transform: uppercase;
-    font-weight: 1400;
+    font-weight: 700;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.colorBtn{
+    font-family: arial;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
     border: none;
     padding: 20px;
     cursor: pointer;
 }
 .btn-yellow{
 	background-color: transparent;
+    background-size: cover;
 	background-image: url('Images/Yellow.PNG');
+}
+.btn-white{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/White.PNG');
+}
+.btn-red{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/Red.PNG');
+}
+.btn-green{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/Green.PNG');
+}
+.btn-blue{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/Blue.PNG');
+}
+.btn-white{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/White.PNG');
+}
+.btn-white{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/White.PNG');
+}
+.btn-white{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/White.PNG');
 }
