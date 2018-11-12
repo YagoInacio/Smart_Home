@@ -1,9 +1,9 @@
 .btn{
     font-family: arial;
-    font-size:px;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: 1400;
     border: none;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
 }
