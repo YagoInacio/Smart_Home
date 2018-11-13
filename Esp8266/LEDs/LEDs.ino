@@ -61,6 +61,10 @@ void connect() {
 
 
 void messageReceived(String &topic, String &payload) {
+  static long int  redCode = 0,
+                   greenCode = 0,
+                   blueCode = 0;
+  static bool power = false;
 
   Serial.println("incoming: " + topic + " - " + payload);
 
@@ -71,13 +75,28 @@ void messageReceived(String &topic, String &payload) {
     }
     
     char * pEnd;
-    long int  redCode = strtoul(buf, &pEnd, 16),
-              greenCode = strtoul(pEnd, &pEnd, 16),
-              blueCode = strtoul(pEnd, NULL, 16);
-    
+    redCode = strtoul(buf, &pEnd, 16);
+    greenCode = strtoul(pEnd, &pEnd, 16);
+    blueCode = strtoul(pEnd, NULL, 16);
+  }
+
+  else if (payload == "ON"){
+    power = true;
+  }
+  
+  else if (payload == "OFF"){
+    power = false;
+  }
+
+  if(power){
     analogWrite(red, redCode);
     analogWrite(green, greenCode);
     analogWrite(blue, blueCode);
+  }
+  else{
+    digitalWrite(red, LOW);
+    digitalWrite(green, LOW);
+    digitalWrite(blue, LOW);
   }
 
 }

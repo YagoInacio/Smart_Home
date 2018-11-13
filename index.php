@@ -22,5 +22,10 @@ else if (isset($_GET['color']) && strlen($_GET['color']) == 9){
 	$mqtt->close();
 }
 
+else if (isset($_GET['power'])){
+	$mqtt->publish("casa/quarto/yago", $_GET['power'], 0);
+	$mqtt->close();
+}
+
 
 ?>

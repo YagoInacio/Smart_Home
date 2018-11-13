@@ -1,3 +1,38 @@
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 45%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #00CCFF;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
 .commonBtn{
     font-family: arial;
     font-size: 20px;
@@ -42,18 +77,38 @@
     background-size: cover;
 	background-image: url('Images/Blue.PNG');
 }
-.btn-white{
+.btn-magenta{
 	background-color: transparent;
     background-size: cover;
-	background-image: url('Images/White.PNG');
+	background-image: url('Images/Magenta.PNG');
 }
-.btn-white{
+.btn-cyan{
 	background-color: transparent;
     background-size: cover;
-	background-image: url('Images/White.PNG');
+	background-image: url('Images/Cyan.PNG');
 }
-.btn-white{
+.btn-dark_blue{
 	background-color: transparent;
     background-size: cover;
-	background-image: url('Images/White.PNG');
+	background-image: url('Images/Dark-blue.png');
+}
+.btn-orange{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/Orange.png');
+}
+.btn-light_green{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/Light-green.png');
+}
+.btn-on{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/ON.png');
+}
+.btn-off{
+	background-color: transparent;
+    background-size: cover;
+	background-image: url('Images/OFF.png');
 }
