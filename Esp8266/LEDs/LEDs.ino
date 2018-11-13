@@ -63,7 +63,8 @@ void connect() {
 void messageReceived(String &topic, String &payload) {
   static long int  redCode = 0,
                    greenCode = 0,
-                   blueCode = 0;
+                   blueCode = 0,
+                   scale = 1;
   static bool power = false;
 
   Serial.println("incoming: " + topic + " - " + payload);
@@ -78,6 +79,15 @@ void messageReceived(String &topic, String &payload) {
     redCode = strtoul(buf, &pEnd, 16);
     greenCode = strtoul(pEnd, &pEnd, 16);
     blueCode = strtoul(pEnd, NULL, 16);
+    scale = 1;b   
+  }
+
+  else if(payload[0] == 's'){
+    char buf[2];
+    buf[0] = payload[1];
+    buf[1] = payload[2];
+
+    scale = atoi(buf)*0.01;
   }
 
   else if (payload == "ON"){
@@ -89,9 +99,9 @@ void messageReceived(String &topic, String &payload) {
   }
 
   if(power){
-    analogWrite(red, redCode);
-    analogWrite(green, greenCode);
-    analogWrite(blue, blueCode);
+    analogWrite(red, scale*redCode);
+    analogWrite(green, scale*greenCode);
+    analogWrite(blue, scale*blueCode);
   }
   else{
     digitalWrite(red, LOW);
