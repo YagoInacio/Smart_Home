@@ -79,7 +79,7 @@ void messageReceived(String &topic, String &payload) {
     redCode = strtoul(buf, &pEnd, 16);
     greenCode = strtoul(pEnd, &pEnd, 16);
     blueCode = strtoul(pEnd, NULL, 16);
-    scale = 1;b   
+    scale = 1;   
   }
 
   else if(payload[0] == 's'){
