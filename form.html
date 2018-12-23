@@ -49,7 +49,7 @@
 	</form> -->
 
 	<form>
-		<button class="commonBtn" name="a" value="ok">Lamp 1 </button>
+		<button class="commonBtn" value="ok" id="Lamp1">Lamp 1</button>
 		<br><br>
 		<button class="colorBtn btn-red" name="color" value="#FF 00 00"></button>
 		<button class="colorBtn btn-green" name="color" value="#00 FF 00"></button>
@@ -82,6 +82,30 @@
             window.location.href = "index.php?scale=" + this.value; 
         }
     </script>
+   <script>
+    $('#Lamp1').click(function(e){
+
+        e.preventDefault();
+        e.stopPropagation();
+
+	var comando = $('#Lamp1').val();
+         $.ajax({
+           url: "index.php?a="+escape(comando),
+           method: 'GET',
+           dataType: 'text',
+           success: function (data) {
+                alert(success)     
+           },
+           error: function (request, status, error) {
+              console.log(request)
+              alert(error)
+           alert(status)
+           }
+         })
+
+         });
+    </script>
+    
 
 </body>
 </html>
