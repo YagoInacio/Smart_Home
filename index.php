@@ -27,5 +27,9 @@ else if (isset($_GET['power'])){
 	$mqtt->close();
 }
 
+else if (isset($_GET['scale'])){
+	$mqtt->publish("casa/quarto/yago", "s".$_GET['scale'], 0);
+	$mqtt->close();
+}
 
 ?>

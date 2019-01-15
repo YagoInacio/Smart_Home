@@ -8,7 +8,7 @@ const char* ssid = "Faran";
 
 const char* pass = "cerveja123";
 
-
+const char* serverIp = "192.168.1.115";
 
 WiFiClient net;
 
@@ -82,7 +82,7 @@ void setup() {
 
   // You need to set the IP address directly.
 
-  client.begin("192.168.0.115",1234, net);
+  client.begin(serverIp,1234, net);
 
   client.onMessage(messageReceived);
 

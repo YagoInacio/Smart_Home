@@ -48,8 +48,10 @@
  		<input type="submit" value="Definir">
 	</form> -->
 
+	<button class="commonBtn" value="ok" id="Lamp">LAMP</button>
+
 	<form>
-		<button class="commonBtn" value="ok" id="Lamp1">Lamp 1</button>
+		<button class="commonBtn" name="a" value="ok" id="Lamp1">Lamp 1</button>
 		<br><br>
 		<button class="colorBtn btn-red" name="color" value="#FF 00 00"></button>
 		<button class="colorBtn btn-green" name="color" value="#00 FF 00"></button>
@@ -83,16 +85,16 @@
         }
     </script>
    <script>
-    $('#Lamp1').click(function(e){
+    $('#Lamp').click(function(e){
 
         e.preventDefault();
         e.stopPropagation();
 
-	var comando = $('#Lamp1').val();
+	var comando = $('#Lamp').val();
          $.ajax({
            url: "index.php?a="+escape(comando),
            method: 'GET',
-           dataType: 'text',
+           dataType: 'json',
            success: function (data) {
                 alert(success)     
            },
